@@ -6,4 +6,5 @@ import com.company.model.Product;
 
 public interface ProductService {
 	List<Product> getProducts();
+	Product getProduct(Long id);
 }
