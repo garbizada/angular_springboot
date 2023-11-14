@@ -1,6 +1,7 @@
 package com.company.service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -10,7 +11,7 @@ import com.company.model.Product;
 @Service
 public class ProductServiceImplement implements ProductService {
 
-	public ProductsServiceImmplement() {
+	public ProductServiceImplement() {
 		
 		products.add(new Product(1l, "iphone", 999));
 		products.add(new Product(2l, "iphone XR", 2999));
