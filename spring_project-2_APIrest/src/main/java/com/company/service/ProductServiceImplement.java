@@ -12,7 +12,7 @@ import com.company.model.Product;
 public class ProductServiceImplement implements ProductService {
 
 	public ProductServiceImplement() {
-		
+
 		products.add(new Product(1l, "iphone", 999));
 		products.add(new Product(2l, "iphone XR", 2999));
 		products.add(new Product(3l, "iphone 15", 5999));
@@ -20,7 +20,6 @@ public class ProductServiceImplement implements ProductService {
 
 	List<Product> products = new ArrayList<Product>();
 
-	
 	public List<Product> getProducts() {
 		return products;
 	}
@@ -40,7 +39,17 @@ public class ProductServiceImplement implements ProductService {
 	@Override
 	public void createProduct(Long productID, String productName, Integer price) {
 		products.add(new Product(productID, productName, price));
-		
+
+	}
+
+	@Override
+	public void updateProduct(Product product) {
+		getProduct(product.getProductID()).setProductPrice(product.getProductPrice());
+		getProduct(product.getProductID()).setProductName(product.getProductName());
+	}
+	
+	public void deleteProduct(Long id) {
+		System.out.println("Status..."+ products.remove(getProduct(id)));
 	}
 
 }
