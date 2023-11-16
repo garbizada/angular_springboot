@@ -1,10 +1,17 @@
 package com.company.controller;
 
+import java.io.IOException;
+import java.net.http.HttpHeaders;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,10 +32,12 @@ public class ProductController {
 	@Autowired
 	ProductService productService;
 
-	@GetMapping("")
+	@GetMapping(value="", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	List<Product> getProducts() {
 		return productService.getProducts();
 	}
+	
+	
 
 	@GetMapping("/{id}")
 	public Product getProduct(@PathVariable("id") Long id) {
